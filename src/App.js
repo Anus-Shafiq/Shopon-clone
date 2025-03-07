@@ -1,6 +1,7 @@
 import "./App.css";
 import OffcanvasExample from "./components/navbar";
 import { Categories, Product } from "./components/cards";
+import HeroSection from "./components/hero";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -273,16 +274,18 @@ function App() {
   return (
     <>
       <OffcanvasExample />
+      <HeroSection />
       <Container className="mt-5">
         <Col lg={10} className="mx-auto bg-white rounded-4 p-2">
           <Row>
             {category.map((value) => {
               return (
-                <Col key={value.id} xs={12} sm={6} md={4} lg={2}>
+                <Col key={value.id} xs={4} sm={4} md={2} lg={2}>
                   <Categories
                     onClickBtn={() => setSelectedCategory(value)}
                     catImg={value.img}
                     catName={value.name}
+                    scaleImg={selectedCategory?.id === value.id ? "1.1" : "1"}
                   />
                 </Col>
               );
@@ -299,7 +302,7 @@ function App() {
               </h3>
               <Row>
                 {selectedCategory.items.map((item) => (
-                  <Col key={item.id} xs={12} sm={12} md={6} lg={4}>
+                  <Col key={item.id} xs={6} sm={6} md={6} lg={4}>
                     <Product
                       proImg={item.img}
                       proName={item.name}

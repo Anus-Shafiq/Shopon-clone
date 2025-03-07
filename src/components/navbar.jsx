@@ -9,7 +9,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 function OffcanvasExample() {
   return (
     <>
-      <Navbar expand={"md"} className="bg-body-tertiary mb-3">
+      <Navbar expand={"md"} className="bg-body-tertiary ">
         <Container>
           <Navbar.Brand href="#">
             <img

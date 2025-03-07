@@ -1,12 +1,13 @@
 import Card from "react-bootstrap/Card";
 
-export function Categories({ catImg, catName, onClickBtn }) {
+export function Categories({ catImg, catName, onClickBtn, scaleImg }) {
   return (
     <Card
       onClick={onClickBtn}
       className="border-0  align-items-center"
       style={{
         cursor: "pointer",
+        scale: scaleImg,
       }}
     >
       <Card.Img
