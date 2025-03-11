@@ -2,7 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 function HeroSection() {
   return (
-    <Carousel>
+    <Carousel indicators={false} controls={false}>
       <Carousel.Item interval={1000}>
         <img
           className="img-fluid"

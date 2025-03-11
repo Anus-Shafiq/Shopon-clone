@@ -33,8 +33,18 @@ export function Product({ proImg, proName, proPrice }) {
         <Card.Title className=" p- m-0  text-capitalize">
           <p>{proName}</p>
         </Card.Title>
-        <Card.Text className="fs-5 text-success">{proPrice}</Card.Text>
+        <Card.Text className="fs-5 text-success">
+          <p>{proPrice}</p>
+        </Card.Text>
       </Card.Body>
+    </Card>
+  );
+}
+
+export function GiftCard({ cardImg }) {
+  return (
+    <Card className="m-2 p-2 border-0">
+      <Card.Img src={cardImg} className="img-fluid rounded-4" />
     </Card>
   );
 }

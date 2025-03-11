@@ -1,10 +1,15 @@
 import "./App.css";
 import OffcanvasExample from "./components/navbar";
-import { Categories, Product } from "./components/cards";
+import { Categories, Product, GiftCard } from "./components/cards";
 import HeroSection from "./components/hero";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Footer from "./components/footer";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import { useState } from "react";
 
 function App() {
@@ -270,7 +275,61 @@ function App() {
     },
   ];
 
+  const cardImg = [
+    { id: 0, img: "./Assets/giftcard/amazon.jpg" },
+    { id: 1, img: "./Assets/giftcard/google.jpg" },
+    { id: 2, img: "./Assets/giftcard/itune.jpg" },
+    { id: 3, img: "./Assets/giftcard/playstation.jpg" },
+  ];
+
+  const cardImg1 = [
+    { id: 0, img: "./Assets/giftcard/gaming-cards.jpg" },
+    { id: 1, img: "./Assets/giftcard/iphone-card.jpg" },
+  ];
   const [selectedCategory, setSelectedCategory] = useState(category[0]);
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       <OffcanvasExample />
@@ -300,21 +359,54 @@ function App() {
               <h3 className="text-center mt-4">
                 Items in {selectedCategory.name}
               </h3>
-              <Row>
-                {selectedCategory.items.map((item) => (
-                  <Col key={item.id} xs={6} sm={6} md={6} lg={4}>
-                    <Product
-                      proImg={item.img}
-                      proName={item.name}
-                      proPrice={item.price}
-                    />
-                  </Col>
-                ))}
+              <Row className="slider-container">
+                <Slider {...settings}>
+                  {selectedCategory.items.map((item) => (
+                    <Col key={item.id} className="mt-3">
+                      <Product
+                        proImg={item.img}
+                        proName={item.name}
+                        proPrice={item.price}
+                      />
+                    </Col>
+                  ))}
+                </Slider>
               </Row>
             </>
           )}
         </Col>
       </Container>
+
+      <Container className="mt-5">
+        <Col lg={10} className="mx-auto bg-white rounded-4 p-2">
+          <>
+            <h3 className="text-center mt-4">Trending Gift Cards</h3>
+            <Row>
+              {cardImg.map((image) => (
+                <Col
+                  key={image.id}
+                  className="mt-3 "
+                  xs={12}
+                  sm={12}
+                  md={6}
+                  lg={3}
+                >
+                  <GiftCard cardImg={image.img} />
+                </Col>
+              ))}
+            </Row>
+            <Row>
+              {cardImg1.map((image1) => (
+                <Col key={image1.id} className="mt-3" md={12} lg={6}>
+                  <GiftCard cardImg={image1.img} />
+                </Col>
+              ))}
+            </Row>
+          </>
+        </Col>
+      </Container>
+
+      <Footer />
     </>
   );
 }
