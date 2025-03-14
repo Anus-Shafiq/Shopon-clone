@@ -41,10 +41,10 @@ export function Product({ proImg, proName, proPrice }) {
   );
 }
 
-export function GiftCard({ cardImg }) {
+export function GiftCard({ cardImg, customClass, imgKey }) {
   return (
-    <Card className="m-2 p-2 border-0">
-      <Card.Img src={cardImg} className="img-fluid rounded-4" />
+    <Card className=" border-0">
+      <img src={cardImg} className={`img-fluid ${customClass}`} alt={imgKey} />
     </Card>
   );
 }
