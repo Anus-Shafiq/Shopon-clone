@@ -31,8 +31,10 @@ function OffcanvasExample() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-start flex-grow-1 pe-3">
-                <Nav.Link href="#">Gift Cards</Nav.Link>
-                <Nav.Link href="#">Home</Nav.Link>
+                <Nav.Link href="/jdjhdjh">Gift Cards</Nav.Link>
+
+                <Nav.Link href="/home">Home</Nav.Link>
+
                 <Nav.Link href="#">Mobile & Tablets</Nav.Link>
                 <Nav.Link href="#">Fashion</Nav.Link>
                 <Nav.Link href="#">Electronics</Nav.Link>

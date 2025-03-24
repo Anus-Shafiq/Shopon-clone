@@ -12,16 +12,13 @@ function CategoryComponent({ cat }) {
         <Row>
           {cat.items.map((items) => (
             <>
-              {console.log(items.id)}
               <Col key={items.id} className="mt-3" xs={6} md={6} lg={3}>
-                {/* <Link className="text-decoration-none" to={`/home/${items.id}`}> */}
                 <Product
                   proImg={items.img}
                   proName={items.name}
                   proPrice={items.price}
                   link={items.id}
                 />
-                {/* </Link> */}
               </Col>
             </>
           ))}
